@@ -15,13 +15,13 @@ nav_order: 4
 
 ALM: (Marco)
 
-Unter dem Begriff "Application Lifecycle Management" (ALM) werden von SAP Prozesse, Werkzeuge, Best Practices und Services bereitgestellt, um SAP- und nicht-SAP-Lösungen über ihren kompletten Lebenszyklus zu verwalten, also von der Planung und Einführung über den Betrieb bis zur Stillegung von Systemen und Applikationen(?) (siehe dazu https://support.sap.com/en/alm.html). 
+Unter dem Begriff "Application Lifecycle Management" (ALM) werden von SAP Prozesse, Werkzeuge, Best Practices und Services für die komplette Lebenszyklus-Verwaltung von SAP- und nicht-SAP-Lösungen bereitgestellt. Hierdurch lassen sich Applikationen von der initialen Planung, über die Einführung und Wartung, bis zur finalen Stillegung verwalten (siehe dazu https://support.sap.com/en/alm.html). 
 
 Dazu wurde ab Mitte der 2000er-Jahre(?) der SAP Solution Manager als On-Premise-System augeliefert und stetig erweitert, der jedoch zum Ende des Jahres 2027 - analog der Business Suite - aus der Mainstream-Wartung läuft.
 
 Das Nachfolgeprodukt des SAP Solution Managers nennt sich SAP Cloud ALM und ist - wie der Name schon sagt - eine reine Cloud-Lösung, die auf der SAP Business Technology Platform (BTP) läuft. SAP Cloud ALM befindet sich seit einigen Jahren im Aufbau und wird kontinuierlich weiterentwickelt, in enger Abstimmung mit der DSAG und Anwenderundernehmen. Der Funktionsumfang ist im Vergleich zum SAP Solution Manager derzeit noch eingeschränkt und aktuell (Stand: Anfang 2025) eher für kleinere Unternehmen ohne über Jahre gewachsenes ALM sowie für cloud-zentrierte Systemlandschaften geeignet/brauchbar.
 
-Weitere SAP-Produkte aus der ALM-Familie sind SAP Focused Run als eigenständiges On-Premise-System für den Monitoring-Bereich, das in diesem ABAP-Leitfaden jedoch keine (große?) Rolle spielt, sowie die SAP Solution Manager-Addons Focused Build (mit Erweiterungen im (agil...Verweis???) und im Testmamagement, siehe dazu Kapitel ...Verweis...) und Focused Insights für Dashboards jeglicher Art.
+Weitere SAP-Produkte aus der ALM-Familie sind SAP Focused Run als eigenständiges On-Premise-System für den Monitoring-Bereich, das in diesem ABAP-Leitfaden jedoch keine (große?) Rolle spielt, sowie die SAP Solution Manager-Addons Focused Build (https://support.sap.com/en/alm/focused-build.html) und im Testmamagement, siehe dazu Kapitel ...Verweis...) und Focused Insights für Dashboards jeglicher Art.
 
 In diesem Kapitel wird lediglich auf die im Rahmen der Softwareentwicklung relevanten Aspekte und Werkzeuge eingegangen.
 
@@ -33,7 +33,15 @@ So können durch das ALM - korrekt implementiert und stringent angewendet - die 
 
 Aus Sicht der SAP-Entwicklung ist in erster Linie das Change and Request Management (ChaRM) hervorzuheben, das die Prozesse und Anwendungen des Anforderungs- und Transportmanagements perfekt verbindet, inklusive definierbarer (Code?-)Prüfungen vor und während Transportvorgängen entlang der Systemlandschaft(?).
 
-Grafik??
+Vorteile ChaRM:
+* Downgrade Protection
+* Object Lock
+* Cross Reference Check 
+* Critical Objects
+* Custom Code Checks
+
+-> Gesicherte und validierte Verprobung von Aktivitäten vor Transportfreigabe.
+
 
 Hinsichtlich der Dokumentation besteht unter anderem die Möglichkeit, Entwicklungsobjekte automatisch aus den angebundenen SAP-Systemen auszulesen und anschließend (manuell) den entsprechenden Prozessen zuzuweisen, was etwa die Änderung von Prozessen durch den Entwickler vereinfachen kann.
 
