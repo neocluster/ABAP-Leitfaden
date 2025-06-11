@@ -13,9 +13,34 @@ nav_order: 3
 {:toc}
 
 
-# DORA- und DevEx-Metriken im SAP-ERP-Umfeld (ABAP)
+# Der Nutzen von DORA- und DevEx-Metriken zur Optimierung von ABAP-Entwicklungsprozessen
+Im Kontext der SAP-ERP-Entwicklung – insbesondere bei der Programmierung in ABAP – sind effiziente, transparente und steuerbare Entwicklungsprozesse von zentraler Bedeutung. Die Anwendung bewährter Metriken aus der DevOps-Welt, wie der DORA-Metriken ([DevOps Research and Assessment](https://dora.dev/)) und der Developer-Experience-Kennzahlen ([DevEx](https://getdx.com/research/measuring-developer-productivity-with-the-dx-core-4/)), bietet hierbei erhebliches Optimierungspotenzial. Insbesondere in traditionell prozessgesteuerten SAP-Landschaften können diese Metriken helfen, technische und organisatorische Engpässe zu identifizieren und Verbesserungsmaßnahmen zielgerichtet umzusetzen.
 
-Bei der Entwicklung mit ABAP gelten besondere Rahmenbedingungen, die sich deutlich von modernen, Cloud-nativen Entwicklungsszenarien unterscheiden. Dennoch können ausgewählte **DORA-DevOps-Metriken** und **Developer Experience (DevEx) Metriken** auch hier sinnvoll genutzt werden – jedoch angepasst an die SAP-spezifische Realität.
+1. Schaffung von Transparenz im Entwicklungsprozess
+Die Messung zentraler Leistungskennzahlen – wie der "Lead Time for Changes" oder der "Deployment Frequency" – erlaubt eine objektive Betrachtung des gesamten Entwicklungszyklus. Sie zeigt auf, wie lange Änderungen benötigen, um von der Anforderung in die Produktion überführt zu werden, und wie häufig produktive Auslieferungen stattfinden. Gerade in SAP-Systemen mit komplexen Freigabe- und Transportprozessen kann so sichtbar gemacht werden, an welchen Stellen im Lebenszyklus Verzögerungen auftreten.
+
+Ein Beispiel hierfür ist die Metrik "Time in Object Lock Wait", die angibt, wie lange Entwickler durch gesperrte Objekte in ihrer Arbeit behindert werden. Diese Sperrmechanismen, die der Konsistenzsicherung dienen, können bei unzureichender Koordination zu erheblichem Produktivitätsverlust führen.
+
+2. Identifikation technischer und organisatorischer Engpässe
+Die systematische Erhebung von DORA- und DevEx-Metriken ermöglicht es, Engpässe im Prozessverlauf eindeutig zu lokalisieren. So lässt sich beispielsweise eine hohe Zahl manueller Schritte im Deployment-Prozess durch die Metrik "Manual Steps per Deployment" quantifizieren. Daraus können gezielte Automatisierungsvorhaben abgeleitet werden, etwa durch den Einsatz von gCTS (Git-enabled Change and Transport System) oder CI/CD-Lösungen für ABAP.
+
+Darüber hinaus gibt die "Change Failure Rate" Aufschluss über die Qualität des Entwicklungsprozesses und weist auf Schwächen in den Test- oder Review-Abläufen hin. Eine hohe Änderungsfehlerrate kann Indikator für unzureichende Qualitätssicherung oder unklare Anforderungen sein.
+
+3. Verbesserung der Planbarkeit und Steuerung
+Ein weiterer zentraler Nutzen der Metrikerhebung liegt in der verbesserten Planbarkeit und Vorhersagbarkeit von Release-Zyklen. Durch kontinuierliche Erfassung und Auswertung historischer Entwicklungsdaten lassen sich Aufwandsschätzungen präzisieren und wiederkehrende Muster frühzeitig erkennen.
+
+Darüber hinaus ermöglichen objektive Metriken eine fundierte Kommunikation zwischen Entwicklungsteams, Qualitätssicherung und Management. Diskussionen über Ressourcenzuteilung, Prozessveränderungen oder Automatisierungsmaßnahmen können auf belastbare Daten gestützt werden, wodurch Entscheidungsprozesse deutlich effizienter ablaufen.
+
+4. Verbesserung der Developer Experience (DevEx)
+Auch aus Sicht der Entwicklerinnen und Entwickler leisten DevEx-Metriken einen entscheidenden Beitrag zur Optimierung der Arbeitsbedingungen. Kennzahlen wie "Developer Waiting Time" oder "Feedback Cycle Time" geben Aufschluss darüber, inwieweit Entwickler durch Prozesse, Freigaben oder Kommunikationslücken in ihrer Produktivität eingeschränkt werden. Eine hohe Frustration durch wiederholtes Warten auf Testressourcen oder auf die Freigabe von Transportaufträgen wirkt sich nicht nur negativ auf die Performance, sondern auch auf die Mitarbeiterzufriedenheit aus.
+
+Durch die gezielte Analyse dieser Metriken können organisatorische Maßnahmen zur Verbesserung der Zusammenarbeit und zur Erhöhung der Prozessgeschwindigkeit abgeleitet werden.
+
+5. Grundlage für kontinuierliche Prozessverbesserung
+Die Etablierung eines auf Kennzahlen basierenden Monitorings bildet die Grundlage für eine strukturierte, kontinuierliche Prozessverbesserung nach dem Prinzip des „Continuous Improvement“. Änderungen an Prozessen, Tools oder Organisationsstrukturen können hinsichtlich ihrer Wirkung transparent nachvollzogen und objektiv bewertet werden. Beispielsweise kann die Einführung automatisierter Tests oder von Review-Prozessen durch den Vergleich relevanter Metriken (z. B. Änderung der Fehlerrate oder Verkürzung der Lead Time) empirisch bewertet werden.
+
+Fazit
+Die Integration von DORA- und DevEx-Metriken in den ABAP-Entwicklungsprozess bietet auch in stark regulierten und traditionell strukturierten SAP-Landschaften eine wirkungsvolle Möglichkeit zur Prozessverbesserung. Sie ermöglicht eine datenbasierte Analyse, erhöht die Transparenz, schafft eine gemeinsame Kommunikationsbasis zwischen technischen und nicht-technischen Stakeholdern und steigert die Effizienz sowie die Zufriedenheit der Entwicklungsteams. Gerade im Kontext wachsender Anforderungen an Time-to-Market und Systemstabilität stellen diese Metriken ein unverzichtbares Werkzeug zur strategischen Weiterentwicklung des SAP-Entwicklungsprozesses dar.
 
 ---
 
@@ -26,7 +51,7 @@ Bei der Entwicklung mit ABAP gelten besondere Rahmenbedingungen, die sich deutli
 | **1. Deployment Frequency**    | ✅ Sinnvoll, aber mit Einschränkungen        | SAP-Transporte sind schwergewichtig und abhängig von Freigaben, Transportaufträgen und oft sequentiell durchzuführenden Deployments. Automatisierung (z. B. mit CTS+, gCTS, oder ChaRM) kann helfen, diese Metrik überhaupt messbar zu machen. |
 | **2. Lead Time for Changes**   | ✅ Sehr relevant                             | Die Zeit vom Commit (z. B. Entwicklung abgeschlossen) bis zur Produktivsetzung kann durch Objekt-Sperren, manuelle Tests und Freigabeprozesse stark verzögert werden. Diese Metrik macht Engpässe sichtbar.                                    |
 | **3. Change Failure Rate**     | ⚠️ Eingeschränkt messbar                    | In ABAP fehlen häufig strukturierte Rückmeldemechanismen. Fehlerhafte Transporte, wie z.B. ein RC8 beim Import, werden selten automatisch erfasst. Integration von Monitoring- und Fehlerverfolgungstools wäre nötig (z. B. Solution Manager, Focused Build).                 |
-| **4. Time to Restore Service** | ⚠️ Eher schwierig im klassischen ECC-Umfeld | Downtime durch fehlerhafte Transporte ist selten, aber wenn, dann kritisch. Die Metrik macht nur Sinn, wenn man Notfallkonzepte (z. B. Rücktransport, N+1-Systeme, Backup-Wiederherstellung) hat.                                              |
+| **4. Time to Restore Service** | ⚠️ Eher schwierig im klassischen ECC-Umfeld | Downtime des gesamten Systems durch fehlerhafte Transporte ist selten, aber wenn, dann kritisch. Die Metrik macht nur Sinn, wenn man Notfallkonzepte (z. B. Rücktransport, N+1-Systeme, Backup-Wiederherstellung) hat.                                              |
 
 ---
 
